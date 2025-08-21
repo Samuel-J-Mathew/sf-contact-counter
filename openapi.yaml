@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: Contact Count API
+  version: "1.0.0"
+paths:
+  /contact-count:
+    post:
+      operationId: contactCount
+      summary: Return number of Contacts on an Account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [account_id]
+              properties:
+                account_id:
+                  type: string
+                  description: Salesforce Account Id
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_id:
+                    type: string
+                  contact_count:
+                    type: integer
